@@ -30,6 +30,8 @@ The main node of the addon. It adds a few additional properties in the inspector
 play(song_name: StringName, from_start: bool = true) -> bool
 
 transition_to(song_name: StringName, crossfade_time: float = 0.0, from_start: bool = true) -> void
+
+get_song_names() -> Array[StringName]
 ```
 
 ## OnBeatPlayer

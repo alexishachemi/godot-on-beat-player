@@ -43,17 +43,11 @@ func play(song_name: StringName, from_start: bool = true) -> bool:
 	primary_player.play(current_song.playback_time)
 	return true
 
-func _set_paused(is_paused: bool):
-	if is_paused == paused:
-		return
-	paused = is_paused
-	if primary_player:
-		primary_player.stream_paused = is_paused
-	if current_song:
-		if paused:
-			current_song.pause()
-		else:
-			current_song.resume()
+func get_song_names() -> Array[StringName]:
+	var names: Array[StringName] = []
+	for song in songs:
+		names.append(song.name)
+	return names
 
 func transition_to(
 	song_name: StringName,
@@ -66,6 +60,18 @@ func transition_to(
 	crossfade_time = default_crossfade_time if crossfade_time < 0 else crossfade_time
 	transition_queue.append(Transition.new(crossfade_time, song, from_start))
 	return true
+
+func _set_paused(is_paused: bool):
+	if is_paused == paused:
+		return
+	paused = is_paused
+	if primary_player:
+		primary_player.stream_paused = is_paused
+	if current_song:
+		if paused:
+			current_song.pause()
+		else:
+			current_song.resume()
 
 func _transition():
 	if transitioning or transition_queue.is_empty():
