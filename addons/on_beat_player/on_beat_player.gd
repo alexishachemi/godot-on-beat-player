@@ -18,8 +18,9 @@ signal transitioned(StringName)
 
 @export var paused: bool = false : set = _set_paused
 @export_range(0.1, 60) var default_crossfade_time: float = 2.0
-@export_range(-80, 24) var volume_db: float = -15 : set = _set_volume_db
+@export_range(-80, 24) var volume_db: float = 0.0 : set = _set_volume_db
 @export var pre_beat_offset: float
+@export var son: OnBeatSong
 @export var songs: Array[OnBeatSong]
 
 @onready var primary_player: AudioStreamPlayer = _new_player()
