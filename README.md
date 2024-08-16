@@ -6,6 +6,12 @@ The addon was developped while working on a personal project and is uploaded her
 
 **Requires Godot 4.2+**
 
+## Installation
+
+To add the addon, copy the `addons` folder into the root of your project. Then, in *Project Settings*, enable the plugin like shown below
+
+<img src="assets\enable.png" width="960"/>
+
 ## OnBeatPlayer <img src="addons\on_beat_player\assets\OnBeatPlayer.png" width="32"/>
 
 The main node of the addon. It adds a few additional properties in the inspector.
